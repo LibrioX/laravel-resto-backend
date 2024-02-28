@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,6 @@ Route::apiResource('/api-products', ProductController::class)->middleware('auth:
 
 //categories
 Route::apiResource('/api-categories', CategoryController::class)->middleware('auth:sanctum');
+
+//orders api
+Route::post('/save-order', [OrderController::class, 'saveOrder'])->middleware('auth:sanctum');
